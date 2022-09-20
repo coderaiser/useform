@@ -101,10 +101,7 @@ export function createForm<T extends CreateFormArgs<T['initialValues']>>(
          React.useEffect(() => {
             if (ref.current) {
                ref.current.name = name
-               return persistInitialValues(
-                  name,
-                  Dot.get<T['initialValues']>(initialValues, name)
-               )
+               return persistInitialValues(name, Dot.get(initialValues, name))
             }
             throw new InvalidOperationException(
                'your input is not rendered yet, or you have not provided a name to the input, or you have not using the register function in the Input component'

@@ -27,7 +27,10 @@ export function set<T extends { [k: string]: any }>(
    return setPropertyValue(defaultObject, 0)
 }
 
-export function get<T extends {}>(defaultObject: T, prop: string) {
+export function get<T extends { [k: string]: any }>(
+   defaultObject: T,
+   prop: string
+) {
    const paths: Array<string> = propToPath(prop)
 
    function getPropertyValue(
